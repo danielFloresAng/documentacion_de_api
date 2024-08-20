@@ -1,0 +1,96 @@
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    // <uniquifier>: Use a unique and descriptive class name
+// <weight>: Use a value from 100 to 900
+
+.montserrat-<uniquifier> {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+}
+:root{
+  --font_mons: "Montserrat", sans-serif;
+  --color_main: rgb(56, 87, 115);
+  --color_sec: rgb(165, 197, 222);
+  --color_third: rgb(41, 123, 164);
+  --color_dark: rgb(141, 172, 192);
+}
+    body{
+      font-family:var(--font_mons);
+      background-color:var(--color_dark);
+      color: var(--color_main);
+      font-size: 16px;
+    }
+    .main-div{
+      width: 300px;
+      height: 320px;
+      margin: 50px auto;
+      border: solid 1px;
+      border-radius: 10px;
+      padding: 13px;
+      background-color: var(--color_sec);
+    }
+    form{  padding: 10px;
+    
+     }
+    a{
+      text-decoration: none;
+      color: var(--color_third)
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    div, span {
+      margin: 10px;
+    }
+    button{
+      margin: 18px;
+      padding: 5px 18px;
+      font-family:'Montserrat';
+      font-weight: 500;
+      border-radius: 8px;
+      background-color:var(--color_main);
+      color: rgb(234, 245, 255);
+      font-size: 14px;
+      transition: 200ms;
+      display: block;
+    }
+    button:hover{
+      
+      font-size: 15px;
+      transition: 200ms;
+      cursor: pointer;
+    }
+    input{
+      padding: 4px 14px;
+    }
+    .title{
+      text-align: center;
+      font-size: 24px;
+      font-weight: 600;
+    }
+  .user-info{
+    font-size: 16px;
+    font-weight: 700;
+  }
+
+  </style>
+</head>
+
+<div class="main-div">
+<p class="title">Prefil de usuario{{Login_type}}</p>
+
+<p class="user-info">Usuario: {{user.firstName}} {{user.lastName}}</p>
+<p class="user-info">Rol:  {{user.role}} </p>
+
+<form action="/api/sessions/logout" method="get">
+  <button>Cerrar sesión</button>
+</form>
+</div>
