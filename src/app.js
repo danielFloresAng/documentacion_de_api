@@ -6,8 +6,8 @@ import session from "express-session";
 import MongoStore from "connect-mongo";
 import passport from "passport";
 import cors from "cors";
-import swaggerJsdoc from 'swagger-jsdoc'
-import swaggerUiExpress from 'swagger-ui-express'
+import swaggerJsdoc from "swagger-jsdoc";
+import swaggerUiExpress from "swagger-ui-express";
 
 import config from "./config.js";
 import socketInit from "./services/sockets.js";
@@ -35,17 +35,17 @@ app.set("socketServer", socketServer);
 
 const swaggerOptions = {
   definition: {
-    openapi: '3.0.1',
-    info:{
-      title: 'Documentación',
-      description: 'API E-Commerce'
-    }
+    openapi: "3.0.1",
+    info: {
+      title: "Documentación",
+      description: "API E-Commerce",
+    },
   },
-  apis:[`${config.DIRNAME}/docs/**/*.yaml`]
-}
-const specs = swaggerJsdoc(swaggerOptions)
+  apis: [`./src/docs/**/*.yaml`],
+};
+const specs = swaggerJsdoc(swaggerOptions);
 
-app.use('/api/docs',swaggerUiExpress.serve,swaggerUiExpress.setup(specs))
+app.use("/api/docs", swaggerUiExpress.serve, swaggerUiExpress.setup(specs));
 app.use(cors({ origin: "*" }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -78,5 +78,3 @@ app.use("/api/sessions", sessionsRouter);
 app.use("/api/auth", authsRouter);
 app.use("/api/base", baseRouter);
 app.use("/static", express.static(`${config.DIRNAME}/public`));
-
-

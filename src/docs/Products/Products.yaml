@@ -1,0 +1,4 @@
+paths:
+  /api/products/:
+    get:
+      sumary: Obtiene todos los productos
